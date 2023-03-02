@@ -2,6 +2,7 @@ package com.example.service;
 
 public interface SkierService {
 	
-	public String addSkierInLift(String message);
+	public Object addSkierInLift(Integer resortID, String seasonID, Integer dayID, Integer skierID, Integer time,
+			Integer liftID);
 
 }

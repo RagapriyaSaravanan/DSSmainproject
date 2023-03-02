@@ -2,6 +2,9 @@ package com.example.service;
 
 public interface ResortService {
 	
-	public String addSeason(String message);
+	public Object addSeason(int resortID, String year);
+
+	public Object addResort(int resortID, String resortName);
+
 
 }

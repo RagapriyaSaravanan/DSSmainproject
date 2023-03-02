@@ -2,62 +2,81 @@ package com.example.model;
 
 import java.io.Serializable;
 
-class LiftRide {
-	
-	int time;
-	int liftID;
-	
-	public LiftRide(int time, int liftID) {
-		super();
-		this.time = time;
-		this.liftID = liftID;
-	}
-	
-	public int getTime() {
-		return time;
-	}
-	public void setTime(int time) {
-		this.time = time;
-	}
-	public int getLiftID() {
-		return liftID;
-	}
-	public void setLiftID(int liftID) {
-		this.liftID = liftID;
-	}
-	
-}
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "skiers")
 public class Skier implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	int skierID;
-	LiftRide lift;
+	
+	Integer skierID;
+	
+	Integer time;
+	
+	Integer liftID;
+	
+	Integer resortID;
+	
+	String seasonYear;
+	
+	Integer dayID;
 
-	public Skier(int skierID, LiftRide lift) {
+	public Skier(Integer skierID, Integer time, Integer liftID, Integer resortID, String seasonYear, Integer dayID) {
 		super();
 		this.skierID = skierID;
-		this.lift = lift;
+		this.time = time;
+		this.liftID = liftID;
+		this.resortID = resortID;
+		this.seasonYear = seasonYear;
+		this.dayID = dayID;
 	}
 
-	public int getSkierID() {
+	public Integer getSkierID() {
 		return skierID;
 	}
 
-	public void setSkierID(int skierID) {
+	public void setSkierID(Integer skierID) {
 		this.skierID = skierID;
 	}
 
-	public LiftRide getLift() {
-		return lift;
+	public Integer getTime() {
+		return time;
 	}
 
-	public void setLift(LiftRide lift) {
-		this.lift = lift;
+	public void setTime(Integer time) {
+		this.time = time;
 	}
 
+	public Integer getLiftID() {
+		return liftID;
+	}
+
+	public void setLiftID(Integer liftID) {
+		this.liftID = liftID;
+	}
+
+	public Integer getResortID() {
+		return resortID;
+	}
+
+	public void setResortID(Integer resortID) {
+		this.resortID = resortID;
+	}
+
+	public String getSeasonYear() {
+		return seasonYear;
+	}
+
+	public void setSeasonYear(String seasonYear) {
+		this.seasonYear = seasonYear;
+	}
+
+	public Integer getDayID() {
+		return dayID;
+	}
+
+	public void setDayID(Integer dayID) {
+		this.dayID = dayID;
+	}	
 	
 }
