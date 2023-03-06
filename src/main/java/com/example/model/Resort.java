@@ -12,9 +12,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.persistence.Column;
 
-
-
-
 @Document(collection = "resorts")
 public class Resort implements Serializable{
 	

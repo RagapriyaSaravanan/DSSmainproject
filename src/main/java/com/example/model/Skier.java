@@ -10,15 +10,10 @@ public class Skier implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	Integer skierID;
-	
 	Integer time;
-	
 	Integer liftID;
-	
 	Integer resortID;
-	
 	String seasonYear;
-	
 	Integer dayID;
 
 	public Skier(Integer skierID, Integer time, Integer liftID, Integer resortID, String seasonYear, Integer dayID) {
@@ -29,6 +24,17 @@ public class Skier implements Serializable{
 		this.resortID = resortID;
 		this.seasonYear = seasonYear;
 		this.dayID = dayID;
+	}
+
+	public Skier(Skier skier) {
+		// TODO Auto-generated constructor stub
+		this.skierID = skier.getSkierID();
+		this.time = skier.getTime();
+		this.liftID = skier.getLiftID();
+		this.resortID = skier.getResortID();
+		this.seasonYear = skier.getSeasonYear();
+		this.dayID = skier.getDayID();
+		
 	}
 
 	public Integer getSkierID() {
