@@ -18,7 +18,7 @@ import java.util.concurrent.Executors;
 import com.example.model.Skier;
 
 public class ClientMultithreaded{
-    private static final String BASE_URL = "http://localhost:8080";
+    private static final String BASE_URL = "http://localhost:8080"; // "http://20.220.214.172:8080";
     private static final int NUM_THREADS = 32;
     private static final int NUM_REQUESTS_PER_THREAD = 1000;
     private static final int MAX_REQUESTS = 10000;
@@ -142,9 +142,11 @@ public class ClientMultithreaded{
                     while (retries < MAX_RETRIES) {
                     	
                         long beforeTime = System.currentTimeMillis();
+                        URI uri = URI.create(String.format(BASE_URL + "/skiers/%d/seasons/%s/days/%d/skiers/%d",
+                        		skier.getResortID(), skier.getSeasonYear(), skier.getDayID(), skier.getSkierID()));
+                        System.out.println(uri);
                     	HttpRequest request = HttpRequest.newBuilder()
-                                .uri(URI.create(String.format(BASE_URL + "/skiers/%d/seasons/%s/days/%d/skiers/%d",
-                                		skier.getResortID(), skier.getSeasonYear(), skier.getDayID(), skier.getSkierID())))
+                                .uri(uri)
                                 .header("Content-Type", "application/json")
                                 .POST(HttpRequest.BodyPublishers.ofString(String.format("{\"time\": %d, \"liftID\": %d}", skier.getTime(), skier.getLiftID())))
                                 .build();
